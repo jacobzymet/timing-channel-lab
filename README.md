@@ -9,8 +9,8 @@ The basic experiment uses three containers:
 | Container | What it represents |
 |---|---|
 | `sender` | One app or agent's tool. It knows a message and tries to send it. |
-| `receiver` | A separate app or agent's tool. It does not know the message and tries to recover it. |
-| `resource` | A shared HTTP service that both programs are allowed to use. |
+| `receiver` | A separate app or agent's tool. It does not know the message and tries to receive/recover it. |
+| `resource` | A stand-in for a web app or API that both programs can access, whether public or internal. |
 
 **All three run Python programs; no AI models run inside them.** The lab tests
 the communication mechanism, not model behaviour or agent coordination. An
@@ -20,10 +20,11 @@ The sender occupies the service briefly for **0** and longer for **1**. The
 receiver measures how long its own requests wait to recover those bits. The
 sender does not send the message directly to the receiver.
 
-Separate apps sharing infrastructure is realistic: they can share databases,
-proxies, or queues. The deliberate simplification here is **one HTTP worker**, so
-one request blocks others. Services with multiple workers or request buffering
-may not expose this same timing channel.
+Separate apps sharing infrastructure is realistic: they can call the same public
+web API or an internal service. What matters is **shared limited capacity**:
+one caller's activity must delay the other. The lab deliberately guarantees this
+with **one HTTP worker**, so one request blocks others. A typical web app with
+multiple workers or request buffering may not expose this same timing channel.
 
 Every sender `POST /work` has the same method, path, headers and body (64 bytes
 by default). The sender sends the headers, waits, then sends the **whole body**.
