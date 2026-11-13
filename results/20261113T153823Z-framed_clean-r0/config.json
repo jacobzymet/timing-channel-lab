@@ -1,0 +1,23 @@
+{
+  "bits_sent": null,
+  "repeat": 0,
+  "scenario": "framed_clean",
+  "scenario_definition": {
+    "channel": {
+      "bit0_ms": 80,
+      "bit1_ms": 240,
+      "bit_threshold_ms": 160,
+      "event_threshold_ms": 50,
+      "gap_ms": 150,
+      "poll_ms": 2,
+      "sync_ms": 600,
+      "sync_threshold_ms": 400
+    },
+    "description": "End-to-end framed payload with wide, easy-to-separate pulses.",
+    "duration_s": 27.0,
+    "message": "HELLO",
+    "mode": "framed",
+    "name": "framed_clean",
+    "repeats": 1
+  }
+}

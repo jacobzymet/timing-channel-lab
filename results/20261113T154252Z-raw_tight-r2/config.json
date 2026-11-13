@@ -1,0 +1,24 @@
+{
+  "bits_sent": "1101100111100001101100011100000000111011100101100011010010011010",
+  "repeat": 2,
+  "scenario": "raw_tight",
+  "scenario_definition": {
+    "bits": 64,
+    "channel": {
+      "bit0_ms": 120,
+      "bit1_ms": 124,
+      "bit_threshold_ms": 122,
+      "event_threshold_ms": 50,
+      "gap_ms": 100,
+      "poll_ms": 1,
+      "sync_ms": 450,
+      "sync_threshold_ms": 300
+    },
+    "description": "Four-millisecond pulse separation; below the receiver's reliable margin.",
+    "duration_s": 22.0,
+    "mode": "raw",
+    "name": "raw_tight",
+    "repeats": 3,
+    "seed": 20260826
+  }
+}

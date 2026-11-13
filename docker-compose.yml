@@ -1,0 +1,109 @@
+name: timing-channel-lab
+
+x-channel-env: &channel-env
+  CHANNEL_HOST: "${CHANNEL_HOST:-resource}"
+  CHANNEL_PORT: "${CHANNEL_PORT:-8080}"
+  CHANNEL_BODY_BYTES: "${CHANNEL_BODY_BYTES:-64}"
+  CHANNEL_BIT0_MS: "${CHANNEL_BIT0_MS:-80}"
+  CHANNEL_BIT1_MS: "${CHANNEL_BIT1_MS:-240}"
+  CHANNEL_SYNC_MS: "${CHANNEL_SYNC_MS:-600}"
+  CHANNEL_GAP_MS: "${CHANNEL_GAP_MS:-150}"
+  CHANNEL_POLL_MS: "${CHANNEL_POLL_MS:-2}"
+  CHANNEL_BIT_THRESHOLD_MS: "${CHANNEL_BIT_THRESHOLD_MS:-160}"
+  CHANNEL_SYNC_THRESHOLD_MS: "${CHANNEL_SYNC_THRESHOLD_MS:-400}"
+  CHANNEL_EVENT_THRESHOLD_MS: "${CHANNEL_EVENT_THRESHOLD_MS:-50}"
+  CHANNEL_TIMEOUT_S: "${CHANNEL_TIMEOUT_S:-5}"
+  CHANNEL_CALIBRATION_PAIRS: "${CHANNEL_CALIBRATION_PAIRS:-4}"
+
+x-hardening: &hardening
+  image: "${CHANNEL_IMAGE:-timing-channel-lab:local}"
+  init: true
+  read_only: true
+  tmpfs:
+    - /tmp
+  cap_drop:
+    - ALL
+  security_opt:
+    - no-new-privileges:true
+  stop_grace_period: 2s
+  restart: "no"
+
+services:
+  resource:
+    <<: *hardening
+    build:
+      context: .
+    command: ["timingchannel.resource"]
+    environment:
+      CHANNEL_BODY_BYTES: "${CHANNEL_BODY_BYTES:-64}"
+      CHANNEL_PORT: "${CHANNEL_PORT:-8080}"
+      CHANNEL_TIMEOUT_S: "${CHANNEL_TIMEOUT_S:-5}"
+    networks:
+      - labnet
+
+  receiver:
+    <<: *hardening
+    build:
+      context: .
+    command: ["timingchannel.receiver"]
+    environment:
+      <<: *channel-env
+      CHANNEL_DURATION_S: "0"
+    healthcheck:
+      test: ["CMD-SHELL", "test -f /tmp/receiver-ready"]
+      interval: 1s
+      timeout: 2s
+      retries: 30
+    depends_on:
+      resource:
+        condition: service_started
+    volumes:
+      - receiver-out:/run/channel
+    networks:
+      - labnet
+
+  sender:
+    <<: *hardening
+    build:
+      context: .
+    command: ["timingchannel.sender"]
+    environment:
+      <<: *channel-env
+      CHANNEL_MODE: "${CHANNEL_MODE:-framed}"
+      CHANNEL_MESSAGE: "${CHANNEL_MESSAGE:-HELLO}"
+      CHANNEL_BITS: "${CHANNEL_BITS:-}"
+      CHANNEL_LEAD_IN_MS: "${CHANNEL_LEAD_IN_MS:-3000}"
+    depends_on:
+      resource:
+        condition: service_started
+      receiver:
+        condition: service_healthy
+    networks:
+      - labnet
+
+  noise:
+    <<: *hardening
+    profiles: ["noise"]
+    build:
+      context: .
+    command: ["timingchannel.noise"]
+    environment:
+      <<: *channel-env
+      CHANNEL_DURATION_S: "0"
+      CHANNEL_LEAD_IN_MS: "${CHANNEL_LEAD_IN_MS:-3000}"
+      CHANNEL_NOISE_SEED: "${CHANNEL_NOISE_SEED:-20260826}"
+    depends_on:
+      resource:
+        condition: service_started
+      receiver:
+        condition: service_healthy
+    networks:
+      - labnet
+
+volumes:
+  receiver-out:
+
+networks:
+  labnet:
+    driver: bridge
+    internal: true

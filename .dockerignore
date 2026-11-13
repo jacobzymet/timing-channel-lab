@@ -1,0 +1,8 @@
+**
+!Dockerfile
+!.dockerignore
+!LICENSE
+!src/
+!src/**
+**/__pycache__
+**/*.py[cod]

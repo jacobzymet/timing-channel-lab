@@ -1,0 +1,30 @@
+{
+  "bits_sent": "0010101100000001011011100101010110011011110001011101010111010111",
+  "compose_project": "timing-channel-lab-f4f92026829a",
+  "defaults": {
+    "body_bytes": 64,
+    "calibration_pairs": 4,
+    "host": "resource",
+    "port": 8080
+  },
+  "repeat": 1,
+  "scenario": "raw_clean",
+  "scenario_definition": {
+    "bits": 64,
+    "channel": {
+      "bit0_ms": 80,
+      "bit1_ms": 240,
+      "bit_threshold_ms": 160,
+      "event_threshold_ms": 50,
+      "gap_ms": 150,
+      "poll_ms": 2,
+      "sync_ms": 600,
+      "sync_threshold_ms": 400
+    },
+    "description": "Random bits over the baseline channel, used for BER.",
+    "mode": "raw",
+    "name": "raw_clean",
+    "repeats": 3,
+    "seed": 20260826
+  }
+}

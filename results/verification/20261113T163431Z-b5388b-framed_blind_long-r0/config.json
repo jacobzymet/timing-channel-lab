@@ -1,0 +1,29 @@
+{
+  "bits_sent": null,
+  "compose_project": "timing-channel-lab-89a2507455cf",
+  "defaults": {
+    "body_bytes": 64,
+    "calibration_pairs": 4,
+    "host": "resource",
+    "port": 8080
+  },
+  "repeat": 0,
+  "scenario": "framed_blind_long",
+  "scenario_definition": {
+    "channel": {
+      "bit0_ms": 80,
+      "bit1_ms": 240,
+      "bit_threshold_ms": 160,
+      "event_threshold_ms": 50,
+      "gap_ms": 150,
+      "poll_ms": 2,
+      "sync_ms": 600,
+      "sync_threshold_ms": 400
+    },
+    "description": "Fresh random host-only payload; longer than the old capture window.",
+    "message": "b2bb42aa1efe81e4",
+    "mode": "framed",
+    "name": "framed_blind_long",
+    "repeats": 1
+  }
+}

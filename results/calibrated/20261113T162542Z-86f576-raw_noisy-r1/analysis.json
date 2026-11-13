@@ -1,0 +1,76 @@
+{
+  "channel": {
+    "bit_error_rate": 0.15625,
+    "decoded_bits": 72,
+    "decoded_payload_hex": null,
+    "decoded_payload_text": null,
+    "error": null,
+    "error_metric": "levenshtein_distance / expected_bits",
+    "expected_bits": 64,
+    "frame_ok": false,
+    "hamming_error_rate": null,
+    "mode": "raw",
+    "payload_match": null
+  },
+  "config": {
+    "bit0_ms": 80.0,
+    "bit1_ms": 240.0,
+    "bit_threshold_ms": 160.0,
+    "body_bytes": 64,
+    "calibration_pairs": 4,
+    "event_threshold_ms": 50.0,
+    "gap_ms": 150.0,
+    "host": "resource",
+    "poll_ms": 2.0,
+    "port": 8080,
+    "sync_ms": 600.0,
+    "sync_threshold_ms": 400.0,
+    "timeout_s": 5.0
+  },
+  "generated_at": "2026-11-13T16:34:20.745+00:00",
+  "log_decode": {
+    "ber": null,
+    "bit_threshold_ms": null,
+    "bits": [],
+    "error": "expected 74 /work requests, saw 91",
+    "preamble_ms": null,
+    "read_ms_ber": null,
+    "read_ms_bit_threshold_ms": null,
+    "read_ms_bits": [],
+    "read_ms_preamble_ms": null,
+    "request_bytes": [
+      64
+    ],
+    "requests": 91,
+    "unique_body_sha256": 1,
+    "unique_paths": 1
+  },
+  "payload_throughput_bps": null,
+  "receiver_decoded_independently": true,
+  "requests": {
+    "request_bytes": [
+      64
+    ],
+    "unique_body_sha256": 1,
+    "unique_paths": 1,
+    "work_requests": 91
+  },
+  "run": "20261113T162542Z-86f576-raw_noisy-r1",
+  "samples": {
+    "count": 7800,
+    "events": 83,
+    "timeouts": 0
+  },
+  "scenario": "raw_noisy",
+  "throughput_bps": 2.636,
+  "timing": {
+    "bit0_threshold_ms": 161.39925,
+    "calibration_events": 8,
+    "configured_bit_threshold_ms": 160.0,
+    "data_events": 72,
+    "postamble_rtt_ms": 600.069,
+    "preamble_rtt_ms": 600.906,
+    "sync_threshold_ms": 400.0
+  },
+  "version": 2
+}

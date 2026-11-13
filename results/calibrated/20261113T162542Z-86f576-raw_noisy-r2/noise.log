@@ -1,0 +1,3 @@
+noise starting: interval=700-2000ms hold=40-300ms seed=20260828
+noise done: 13 contention pulses
+NOISE_RECORD {"seed": 20260828, "events": [{"t_ms": 1890.958, "hold_ms": 125.723}, {"t_ms": 3075.495, "hold_ms": 159.228}, {"t_ms": 4935.217, "hold_ms": 203.121}, {"t_ms": 7050.982, "hold_ms": 97.588}, {"t_ms": 8854.732, "hold_ms": 273.865}, {"t_ms": 10183.694, "hold_ms": 136.873}, {"t_ms": 11759.365, "hold_ms": 278.865}, {"t_ms": 13975.088, "hold_ms": 62.518}, {"t_ms": 16122.258, "hold_ms": 96.495}, {"t_ms": 17655.658, "hold_ms": 68.086}, {"t_ms": 19138.253, "hold_ms": 137.18}, {"t_ms": 20948.631, "hold_ms": 116.5}, {"t_ms": 23011.652, "hold_ms": 211.221}]}

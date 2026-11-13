@@ -1,0 +1,23 @@
+{
+  "docker_server": "29.5.3",
+  "image_id": "sha256:6086f6bef43bee424df24b15c531570c3c46b606ac5aa3123b55ee55e42e8b65",
+  "image_created": "2026-11-13T16:23:47.946094101Z",
+  "python_version": "Python 3.12.16",
+  "source_sha256": {
+    "docker-compose.yml": "59ad3cc3b8aa0a7dabbdf74f683a392556dbd2e8cb78710fc14bcc578cceed28",
+    "Dockerfile": "3cf1faa67d098196c14fb25c021f72336582d182cd792a6d12d42ff829e9d71c",
+    "experiments.json": "8d455dcb4a2c25fb362ccfa5b7c2f027ebbd544bd08750107b8540c1db14ac7d",
+    "scripts/plot_trace.py": "fe6d26669849afd74a7c982ca1a3b164ebfec06ef1ebaa1b1601ca9e70e0e73b",
+    "scripts/rebuild_results.py": "c5d1e04db8971e5ff81341239b1a0943dab61af027cac151f3825cd2f9a76127",
+    "scripts/run_experiment.py": "2ae9943dec5f971fcb657e2466ac259e92d2cfb9a6fab5b30f03c39ff7fafb94",
+    "src/timingchannel/__init__.py": "751bb7bc14a40e3c24e039f52610b2d430f3e1d2d7d360ef1a8db69728ef75be",
+    "src/timingchannel/analysis.py": "497e1db859fe2fe9066fa083f10d46f7d8ac5e3e37978ad12a7f2ad4c1558730",
+    "src/timingchannel/codec.py": "6558bb5853a17d05daba420c2e56884f237f30b08d1428801851e911de557dc7",
+    "src/timingchannel/config.py": "1eaa0ad6d1da1d041b0657faba1ed3272e8cb50f14ab51bf17eee22582397b62",
+    "src/timingchannel/noise.py": "6376fe9f56b2d11460346d461891b995bc8ce9aa9cdd1a625a9fb9d6b2746c9a",
+    "src/timingchannel/receiver.py": "3e3e448f673ac8651f6ebffa04ec5c66e585648787e284390a4739e10d32f863",
+    "src/timingchannel/resource.py": "209dc129b4c57de3611f2bbb4d19868be576065841699a60d7a6c0456c2e2bf7",
+    "src/timingchannel/sender.py": "a1bc9a20b552e5160ab8449e269e04237286d8c30feb7a238f95620c28ab9e22",
+    "src/timingchannel/wire.py": "3cd8bb56450daede4b5f3716610495dcbdf66f7a4049e121a5f7099498fe5a89"
+  }
+}

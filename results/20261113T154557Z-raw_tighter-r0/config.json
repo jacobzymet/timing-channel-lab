@@ -1,0 +1,24 @@
+{
+  "bits_sent": "1001000010000000001100110100101001111101010011111010011010111000",
+  "repeat": 0,
+  "scenario": "raw_tighter",
+  "scenario_definition": {
+    "bits": 64,
+    "channel": {
+      "bit0_ms": 120,
+      "bit1_ms": 122,
+      "bit_threshold_ms": 121,
+      "event_threshold_ms": 50,
+      "gap_ms": 100,
+      "poll_ms": 1,
+      "sync_ms": 450,
+      "sync_threshold_ms": 300
+    },
+    "description": "Two-millisecond pulse separation; tests the decoder's noise floor.",
+    "duration_s": 22.0,
+    "mode": "raw",
+    "name": "raw_tighter",
+    "repeats": 3,
+    "seed": 20260826
+  }
+}

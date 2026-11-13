@@ -1,0 +1,24 @@
+{
+  "bits_sent": "1101100111100001101100011100000000111011100101100011010010011010",
+  "repeat": 2,
+  "scenario": "raw_narrow",
+  "scenario_definition": {
+    "bits": 64,
+    "channel": {
+      "bit0_ms": 120,
+      "bit1_ms": 135,
+      "bit_threshold_ms": 127.5,
+      "event_threshold_ms": 50,
+      "gap_ms": 100,
+      "poll_ms": 1,
+      "sync_ms": 450,
+      "sync_threshold_ms": 300
+    },
+    "description": "Pulse separation reduced to 15 ms to test the cost of a quieter channel.",
+    "duration_s": 22.0,
+    "mode": "raw",
+    "name": "raw_narrow",
+    "repeats": 3,
+    "seed": 20260826
+  }
+}

@@ -1,0 +1,2 @@
+receiver sampling: resource:8080 for 28.0s every 2.0ms
+receiver done: 7561 samples, 78 events, max_rtt=601.5ms -> /run/channel/receiver.json

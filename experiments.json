@@ -1,0 +1,118 @@
+{
+  "defaults": {
+    "calibration_pairs": 4,
+    "body_bytes": 64,
+    "host": "resource",
+    "port": 8080
+  },
+  "scenarios": [
+    {
+      "name": "framed_clean",
+      "description": "End-to-end framed payload with wide, easy-to-separate pulses.",
+      "mode": "framed",
+      "message": "HELLO",
+      "repeats": 1,
+      "channel": {
+        "bit0_ms": 80,
+        "bit1_ms": 240,
+        "sync_ms": 600,
+        "gap_ms": 150,
+        "poll_ms": 2,
+        "bit_threshold_ms": 160,
+        "sync_threshold_ms": 400,
+        "event_threshold_ms": 50
+      }
+    },
+    {
+      "name": "raw_clean",
+      "description": "Random bits over the baseline channel, used for BER.",
+      "mode": "raw",
+      "bits": 64,
+      "seed": 20260826,
+      "repeats": 3,
+      "channel": {
+        "bit0_ms": 80,
+        "bit1_ms": 240,
+        "sync_ms": 600,
+        "gap_ms": 150,
+        "poll_ms": 2,
+        "bit_threshold_ms": 160,
+        "sync_threshold_ms": 400,
+        "event_threshold_ms": 50
+      }
+    },
+    {
+      "name": "raw_narrow",
+      "description": "Pulse separation reduced to 15 ms to test the cost of a quieter channel.",
+      "mode": "raw",
+      "bits": 64,
+      "seed": 20260826,
+      "repeats": 3,
+      "channel": {
+        "bit0_ms": 120,
+        "bit1_ms": 135,
+        "sync_ms": 450,
+        "gap_ms": 100,
+        "poll_ms": 1,
+        "bit_threshold_ms": 127.5,
+        "sync_threshold_ms": 300,
+        "event_threshold_ms": 50
+      }
+    },
+    {
+      "name": "raw_tight",
+      "description": "Four-millisecond pulse separation with in-band calibration.",
+      "mode": "raw",
+      "bits": 64,
+      "seed": 20260826,
+      "repeats": 3,
+      "channel": {
+        "bit0_ms": 120,
+        "bit1_ms": 124,
+        "sync_ms": 450,
+        "gap_ms": 100,
+        "poll_ms": 1,
+        "bit_threshold_ms": 122,
+        "sync_threshold_ms": 300,
+        "event_threshold_ms": 50
+      }
+    },
+    {
+      "name": "raw_tighter",
+      "description": "Two-millisecond pulse separation with in-band calibration.",
+      "mode": "raw",
+      "bits": 64,
+      "seed": 20260826,
+      "repeats": 3,
+      "channel": {
+        "bit0_ms": 120,
+        "bit1_ms": 122,
+        "sync_ms": 450,
+        "gap_ms": 100,
+        "poll_ms": 1,
+        "bit_threshold_ms": 121,
+        "sync_threshold_ms": 300,
+        "event_threshold_ms": 50
+      }
+    },
+    {
+      "name": "raw_noisy",
+      "description": "Baseline pulses with independent random /work contention.",
+      "mode": "raw",
+      "bits": 64,
+      "seed": 20260826,
+      "repeats": 3,
+      "noise": true,
+      "channel": {
+        "bit0_ms": 80,
+        "bit1_ms": 240,
+        "sync_ms": 600,
+        "gap_ms": 150,
+        "poll_ms": 2,
+        "bit_threshold_ms": 160,
+        "sync_threshold_ms": 400,
+        "event_threshold_ms": 50
+      }
+    }
+  ]
+}
