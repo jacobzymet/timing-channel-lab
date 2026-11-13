@@ -1,0 +1,6 @@
+* text=auto eol=lf
+
+# Preserve recorded data and archived sources byte for byte.
+results/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+*.png binary
+*.zip binary
